@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anniversaire de mariage – RSVP</title>
+  <meta name="theme-color" content="#ff6699" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1 id="couple"></h1>
+    <h2 id="title"></h2>
+    <p id="whenWhere"></p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h3><span data-i18n="invited"></span></h3>
+      <p id="details"></p>
+      <p class="muted"><span data-i18n="rsvpBy"></span> <span id="deadline"></span></p>
+    </section>
+
+    <section class="card">
+      <h3><span data-i18n="rsvp"></span></h3>
+      <form id="rsvpForm">
+        <div class="grid">
+          <label for="nameLabel">
+            Nom et prénom
+            <input id="nameLabel" type="text" name="name" required placeholder="Votre nom" />
+          </label>
+          <label for="emailLabel">
+            Email
+            <input id="emailLabel" type="email" name="email" required placeholder="vous@example.com" />
+          </label>
+        </div>
+        <label for="attendingLabel">
+          Serez-vous des nôtres ?
+          <select id="attendingLabel" name="attending" required>
+            <option id="attYes" value="yes">Oui</option>
+            <option id="attNo" value="no">Non</option>
+            <option id="attMaybe" value="maybe">Peut-être</option>
+          </select>
+        </label>
+        <label for="guestsLabel">
+          Nombre de personnes (vous inclus)
+          <input id="guestsLabel" type="number" name="guests" min="1" max="20" value="1" required />
+        </label>
+        <label for="dietLabel">
+          Régimes / allergies (optionnel)
+          <input id="dietLabel" type="text" name="diet" placeholder="Végétarien, allergies…" />
+        </label>
+        <label for="msgLabel">
+          Message aux hôtes (optionnel)
+          <textarea id="msgLabel" name="message" rows="3" placeholder="Un mot pour nous"></textarea>
+        </label>
+        <button id="sendBtn" type="submit" class="primary">Envoyer l'RSVP</button>
+        <p id="rsvpStatus" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3><span data-i18n="addToCal"></span></h3>
+      <div class="calendar-actions">
+        <a id="googleCalBtn" class="button" target="_blank" rel="noopener">Google Calendar</a>
+        <button id="icsBtn" class="secondary">Télécharger .ics</button>
+      </div>
+      <p class="muted"><span data-i18n="worksOn"></span></p>
+    </section>
+
+    <section class="card">
+      <h3><span data-i18n="location"></span></h3>
+      <p><strong id="locName"></strong><br /><span id="locAddr"></span></p>
+      <p><a id="gmaps" target="_blank" rel="noopener">Ouvrir dans Google Maps</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> — Avec amour ♡</small>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
