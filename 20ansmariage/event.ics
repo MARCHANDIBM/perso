@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sébastien Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:invitation-karen-seb-20260725@example
+DTSTAMP:20260312T204700Z
+SUMMARY:🥂 20 ans de Mariage — Karen & Seb 💐
+DTSTART:20260725T130000
+DTEND:20260725T180000
+LOCATION:Village Vigneron, 4 La Plessisière, 44330 La Chapelle-Heulin, France
+DESCRIPTION:Célébrons ensemble nos 20 ans de mariage !
+END:VEVENT
+END:VCALENDAR
